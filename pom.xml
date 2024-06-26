@@ -5,7 +5,7 @@
 
 	<groupId>co.novu</groupId>
 	<artifactId>novu-java</artifactId>
-	<version>1.6.0</version>
+	<version>1.6.0-artplan</version>
 	<packaging>jar</packaging>
 	<name>${project.groupId}:${project.artifactId}</name>
 	<description>Java SDK for Novu - The open-source notification infrastructure for developers</description>
@@ -38,25 +38,41 @@
 		</developer>
 	</developers>
 
-	<scm>
+    <distributionManagement>
+       <repository>
+         <id>artplan-SNAPSHOT</id>
+         <name>artplan-SNAPSHOT</name>
+         <url>http://51.38.236.175:8801/artifactory/artplan-SNAPSHOT</url>
+       </repository>
+   </distributionManagement>
+   
+<!--    <repositories>
+        <repository>
+            <snapshots />
+            <id>artplan-SNAPSHOT</id>
+            <name>artplan-SNAPSHOT</name>
+            <url>http://51.38.236.175:8801/artifactory/artplan-SNAPSHOT</url>
+        </repository>
+    </repositories> -->
+<!--  <scm>
 		<connection>scm:git:git://github.com/novuhq/novu-java.git</connection>
 		<developerConnection>scm:git:ssh://github.com/novuhq/novu-java.git</developerConnection>
 		<url>https://github.com/novuhq/novu-java/tree/main</url>
 	</scm>
-
+--> 
 	<profiles>
 		<profile>
 			<id>ossrhDeploy</id>
 			<distributionManagement>
 				<repository>
-					<id>ossrh</id>
-					<name>Central Repository OSSRH</name>
-					<url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+					<id>artplan-SNAPSHOT</id>
+                     <name>artplan-SNAPSHOT</name>
+                     <url>http://51.38.236.175:8801/artifactory/artplan-SNAPSHOT</url>
 				</repository>
 				<snapshotRepository>
-					<id>ossrh</id>
-					<name>Central Repository OSSRH</name>
-					<url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
+					<id>artplan-SNAPSHOT</id>
+                    <name>artplan-SNAPSHOT</name>
+                    <url>http://51.38.236.175:8801/artifactory/artplan-SNAPSHOT</url>
 				</snapshotRepository>
 			</distributionManagement>
 			<build>
@@ -87,7 +103,7 @@
 							</execution>
 						</executions>
 					</plugin>
-					<plugin>
+<!-- 					<plugin>
 						<groupId>org.sonatype.plugins</groupId>
 						<artifactId>nexus-staging-maven-plugin</artifactId>
 						<version>1.6.7</version>
@@ -98,7 +114,7 @@
 							<autoReleaseAfterClose>true</autoReleaseAfterClose>
 						</configuration>
 					</plugin>
-					<plugin>
+ -->					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-gpg-plugin</artifactId>
 						<version>3.1.0</version>
